@@ -18,7 +18,7 @@ class PageController extends Controller
     }
 
     function comics() {
-        return view('comics');
+        return view('comics', ['comics' => Comics::all()]);
     }
 }
 
