@@ -238,8 +238,8 @@ class ComicsSeeder extends Seeder
             $booksList ->series = $comic['series'];
             $booksList ->sale_date = $comic['sale_date'];
             $booksList ->type = $comic['type'];
-            $booksList ->artists = $comic['artists'];
-            $booksList ->writers = $comic['writers'];
+            $booksList ->artists = implode(', ', $comic['artists']); //trasformo il mio array in una stringa con implodez
+            $booksList ->writers = implode($comic['writers']);
             $booksList->save();
 
 
