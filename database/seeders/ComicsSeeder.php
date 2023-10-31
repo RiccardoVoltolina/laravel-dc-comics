@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Http\Controllers\Admin\ComicsController;
+use App\Models\Comics;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -225,5 +227,23 @@ class ComicsSeeder extends Seeder
                 ],
             ],
         ];
+
+        foreach ($comics as $comic) {
+
+            $booksList = new Comics();
+            $booksList ->title = $comic['title'];
+            $booksList ->description = $comic['description'];
+            $booksList ->thumb = $comic['thumb'];
+            $booksList ->price = $comic['price'];
+            $booksList ->series = $comic['series'];
+            $booksList ->sale_date = $comic['sale_date'];
+            $booksList ->type = $comic['type'];
+            $booksList ->artists = $comic['artists'];
+            $booksList ->writers = $comic['writers'];
+            $booksList->save();
+
+
+
+        }
     }
 }
