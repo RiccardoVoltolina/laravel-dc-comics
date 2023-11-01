@@ -17,7 +17,6 @@
 
 <body>
 
-    <h1>home page</h1>
 
     @yield('main_content')
 

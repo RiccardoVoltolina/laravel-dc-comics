@@ -12,12 +12,6 @@ class PageController extends Controller
 
         return view('pages.admin.comics.index', ['comics' => Comics::all()]);
     }
-
-  
-
-    function comics() {
-        return view('comics', ['comics' => Comics::all()]);
-    }
 }
 
 

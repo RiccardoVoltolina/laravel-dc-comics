@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+//Vado a importare i file del PageController e del AdminController
+
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\Admin\AdminController;
 
@@ -14,6 +17,8 @@ use App\Http\Controllers\Admin\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//Con le rotte, vado a richiamare il file (PageController o AdminController in questo caso) e chiamiamo la funzione "index"
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 

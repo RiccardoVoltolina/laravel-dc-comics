@@ -1,6 +1,10 @@
 <?php
 
+//AdminController,sarà una estensione del mio Controller
+
 namespace App\Http\Controllers\Admin;
+
+//Importo il mio Controller
 
 use App\Models\Comics;
 use Illuminate\Http\Request;
@@ -13,6 +17,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+        //Al richiamo della funzione index faccio vedere la pagina desideata, (in questo caso è il file index situato in pages/admin/comics) e abbiamo creato una variabile che contiene i dati nel modello Comics
         return view('pages.admin.comics.index', ['comics' => Comics::all()]);
     }
 
@@ -21,7 +26,6 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.comics.create');
     }
 
     /**
@@ -30,6 +34,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
 
+        //Mettiamo nuovi dati da inserire nel database
         
         $newComic = new Comics();
         $newComic ->title = "Genoveffa: White Knight Presents: Harley Quinn #1";
@@ -42,6 +47,8 @@ class AdminController extends Controller
         $newComic ->artists = "Giacomo";
         $newComic ->writers =  "Katana Collins";
         $newComic->save();
+
+        //diciamo di passarceli alla pagina index
 
         return to_route('comics.index');
     }
