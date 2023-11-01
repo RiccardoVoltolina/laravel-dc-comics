@@ -17,13 +17,13 @@
 
 <body>
 
-    <h1>show all comics info</h1>
+    <h1>home page</h1>
 
-    @foreach ($comics as $comic)
-    
-    <div>{{$comic->title}}</div>
+    @yield('main_content')
+
+   
         
-    @endforeach
+  
 
 </body>
 

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Http\Controllers\Admin\ComicsController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Models\Comics;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;

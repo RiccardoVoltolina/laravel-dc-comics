@@ -10,12 +10,10 @@ class PageController extends Controller
 {
     function index() {
 
-        return view('welcome');
+        return view('pages.admin.comics.index', ['comics' => Comics::all()]);
     }
 
-    function about() {
-        return view('about');
-    }
+  
 
     function comics() {
         return view('comics', ['comics' => Comics::all()]);
