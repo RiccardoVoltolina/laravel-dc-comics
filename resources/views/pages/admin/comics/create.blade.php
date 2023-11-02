@@ -15,21 +15,54 @@
         
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
+            <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="scrivi una descrizione">
+            <small id="titleHelper" class="form-text text-muted">Scrivi una descrizione</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Descrizione</label>
             <input type="text" class="form-control" name="description" id="description" aria-describedby="helpId" placeholder="scrivi una descrizione">
-            <small id="nameHelper" class="form-text text-muted">Type the name here</small>
+            <small id="descriptionHelper" class="form-text text-muted">Scrivi una descrizione</small>
         </div>
 
         <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
-            <input type="number" step="0.01" class="form-control" name="price" id="price" aria-describedby="helpId" placeholder="99.99">
-            <small id="priceHelper" class="form-text text-muted">Type the price here</small>
-
+            <label for="thumb" class="form-label">Choose file</label>
+            <input type="file" class="form-control" name="thumb" id="thumb" placeholder="" aria-describedby="thumb_helper">
+            <div id="thumb_helper" class="form-text">Inserisci una immagine</div>
         </div>
 
         <div class="mb-3">
-            <label for="cover_image" class="form-label">Choose file</label>
-            <input type="file" class="form-control" name="cover_image" id="cover_image" placeholder="" aria-describedby="cover_image_helper">
-            <div id="cover_image_helper" class="form-text">Upload an image for the current product</div>
+            <label for="price" class="form-label">Prezzo</label>
+            <input type="text" class="form-control" name="price" id="price" aria-describedby="helpId" placeholder="scrivi una descrizione">
+            <small id="priceHelper" class="form-text text-muted">Scrivi il prezzo</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="series" class="form-label">Serie</label>
+            <input type="text" class="form-control" name="series" id="series" aria-describedby="helpId" placeholder="scrivi una descrizione">
+            <small id="seriesHelper" class="form-text text-muted">Scrivi il prezzo</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="sale_date" class="form-label">Data uscita</label>
+            <input type="date" class="form-control" name="sale_date" id="sale_date" aria-describedby="helpId" placeholder="scrivi una descrizione">
+            <small id="sale_dateHelper" class="form-text text-muted">Scrivi la data</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="type" class="form-label">Genere</label>
+            <input type="text" class="form-control" name="type" id="type" aria-describedby="helpId" placeholder="scrivi una descrizione">
+            <small id="typeHelper" class="form-text text-muted">Scrivi il genere</small>
+        </div>
+        <div class="mb-3">
+            <label for="artists" class="form-label">Artisti</label>
+            <input type="text" class="form-control" name="artists" id="artists" aria-describedby="helpId" placeholder="scrivi una descrizione">
+            <small id="artistsHelper" class="form-text text-muted">Scrivi gli artisti</small>
+        </div>
+        <div class="mb-3">
+            <label for="writers" class="form-label">Scrittori</label>
+            <input type="text" class="form-control" name="writers" id="writers" aria-describedby="helpId" placeholder="scrivi una descrizione">
+            <small id="writersHelper" class="form-text text-muted">Scrivi gli scrittori</small>
         </div>
 
 
