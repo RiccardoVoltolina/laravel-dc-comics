@@ -10,7 +10,16 @@
             <div class="col d-flex flex-wrap">
                 @foreach ($comics as $comic)
                 <div class="card w-25 m-2 p-5">
-                    <img class="card-img-top" src="{{$comic->thumb}}" alt="">
+                    {{-- se l'immagine la mette l'utente stmpo questo sotto, senò uso il percorso di prima --}}
+                    {{-- @if (Str::startsWith($comic->thumb, 'comics_images'))
+                        <img class="card-img-top" src="{{  asset('storage/' .  $comic->thumb)}}" alt="">
+
+                    
+                    @else
+                        <img class="card-img-top" src="{{$comic->thumb}}" alt="">
+                    @endif --}}
+                    <img class="card-img-top" src="{{ Str::startsWith($comic->thumb, 'comics_images') ? asset('storage/' .  $comic->thumb) :  $comic->thumb }}" alt="">
+
                     <div class="card-body">
                         <h5>Titolo:</h5>
                         <div>{{$comic->title}}</div>
@@ -39,17 +48,6 @@
 
         
 
-    <form action="{{route('comics.store')}}" method="POST" enctype="multipart/form-data">
-
-        <!-- // Attention to Cross site request forgery attacks -->
-        @csrf
-
-        <button type="submit" class="btn btn-primary">
-            Save
-        </button>
-
-
-    </form>
     
 </div>
 @endsection

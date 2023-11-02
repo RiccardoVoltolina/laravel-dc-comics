@@ -34,20 +34,18 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-
-        if ($request->has('cover_image')) {
-            $file_path =  Storage::put('sabers_images', $request->cover_image);
-            $data['cover_image'] = $file_path;
-        }
-        // $data = $request->all();
-
-        // $comic = Comics::create($data);
-        //Mettiamo nuovi dati da inserire nel database
         
         $newComic = new Comics();
+
+        if ($request->has('thumb')) {
+            $file_path =  Storage::put('comics_images', $request->thumb);
+            
+            $newComic ->thumb = $file_path;
+        }
+      
+        
         $newComic ->title = $request->title;
         $newComic ->description = $request->description;
-        $newComic ->thumb = $request->thumb;
         $newComic ->price = $request->price;
         $newComic ->series = $request->series;
         $newComic ->sale_date = $request->sale_date;
