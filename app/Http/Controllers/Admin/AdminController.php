@@ -22,7 +22,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * la funzione viene richiamata quando accedo alla pagina (admin/comics/create), tramite le rotte
+     * la funzione create serve a ritornare la view create
      */
     public function create()
     {
@@ -30,7 +31,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * prendo i dati scritti nel form del create e li aggiungo al database
      */
     public function store(Request $request)
     {
@@ -72,19 +73,20 @@ class AdminController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * la funzione viene richiamata quando accedo alla pagina admin/comics/{comic}/edit, tramite le rotte
+     * la funzione create serve a ritornare la view edit 
      */
-    public function edit(Comics $comics)
+    public function edit(Comics $comic)
     {
-        //
+        return view('pages.admin.comics.edit', compact('comic'));
+
     }
 
     /**
-     * Update the specified resource in storage.
+     * prendo i dati scritti nel form del edit e li aggiorno nel database
      */
     public function update(Request $request, Comics $comics)
     {
-        //
     }
 
     /**

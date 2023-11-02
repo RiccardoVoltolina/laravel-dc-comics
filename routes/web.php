@@ -24,7 +24,7 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
-
+//chiamo tutte le funzioni del admin controller
 Route::resource('admin/comics', AdminController::class);
 
 
