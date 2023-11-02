@@ -27,3 +27,10 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 Route::resource('admin/comics', AdminController::class);
 
+// Route::get('/create', [AdminController::class, 'create'])->name('create');
+
+// Route::get('/store', [AdminController::class, 'store'])->name('store');
+
+
+
+
