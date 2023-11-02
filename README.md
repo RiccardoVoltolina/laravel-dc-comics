@@ -1,66 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+PASSAGGI:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Una volta importato laravell bootsrapp e collegato il nostro account di github, dovremo eseguire i seguenti passaggi:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+CRUD
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+CREATE 
+READ 
+UPDATE 
+DELITE 
 
-## Learning Laravel
+Set di operazioni fatte all' interno del databasa, REST agisce su una risorsa (una risorsa è una riga nella tabella, quindi agisce nel URL) 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Solitamente si fa un controller per gestire le nostre risorse, attreverso il file web.php situato nelle Routes (all'interno del method, specifichiamo quali informazioni passare)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+La risorsa è il 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+php artisan route:list     per vedere le rotte
 
-## Laravel Sponsors
+Nel modello abbiamo tutti i nostri record, quindi li sono contenute le informazioni della tabella
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+php artisan make:model nome_modello -mcrs (creo il modello e il controller)
 
-### Premium Partners
+SHOW prende un dato nella tabella e la vede nel dettaglio (tipo id ecc.)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+CREATE:  Ci stampa in pagina un form
 
-## Contributing
+Il form deve contenere un action dove si indica la rotta da gestire, con il metodo Post enctype="multipart/form-mdata" per dire al form che stiamo passando i dati a un file 
+Sempre nel modello inseriremo il @CSRF che è un meccanismo di protezione per attacchi, creato da laravel
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+STORE: vengono trasmessi i dati immessi nel CREATE e con return to_route (percorso_pagina); reindirizziamo l'utente a una rotta specifica 
 
-## Code of Conduct
+Nel modello, possiamo anche dire quali dati devono essere protetti facendo una nuova istanza(nuova variabile) e mettendola = a un array, coontenente le chiavi del mio array che desideriamo 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+I dati sono nel modello-> noi li prendiamo con i controllers che poi utilizzeremo nelle rotte
 
-## Security Vulnerabilities
+EDIT : restituiamo la view(admin.lightsabers.edit, compact('lightsaber'));
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Nell' action del form, dobbiamo utilizzare il metodo POST o GET (se lo vogliamo modificare si utilizza @method('PUT') In questo caso se era richiesto un metodo get, in questo modo sovrascriviamo e diciamo che necessita invece un metodo di tipo put), indicato sotto nel terminale con il comando php artisan route:list
 
-## License
+UPDATE: recuperiamo la richiesta e aggiorna il database
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+OPERAZIONI CRUD:
+
+- Creo un modello, migrazione e seeders:
+
+
+php artisan make:model nome_modello -ms
+
+-aggiungo i le migrazioni e i sedeers nel database
+
+
+- creo un resource controller per il modello nella cartella admin 
+
+php artisan make:controller Admin/NomeController --resources --model=nomeModello
+
+
+
+- creo una resource Routes nel file web.php
+
+Route::resource('admin/identificativo_risorsa', NomeController::class) se dobbiamo chiamare una funzione precisa, andrà scritto tra le quadre
+
+Ricordiamoci di importare il controller all'inizio del file
+
+-implemento il resource controller methods
+
+Index: mostra la lista delle risorse e risponderà sempre alla rotta nome nome_modello.index qui vedrò
+
+public function index() {
+    $variabile = nomeModello::all()
+    return view(admin.nome_pagina, compact('variabile'))
+}
+
+CREATE: Ritorna una pagina con il form
+
+public function create() {
+    return view
+}
+
+STORE: e legato al create, perchè prende i dati dal form e li salva nella tabella
+
