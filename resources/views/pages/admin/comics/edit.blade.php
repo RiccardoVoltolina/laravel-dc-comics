@@ -8,7 +8,8 @@
 
     {{-- al submit del form faccio partire la funzione update --}}
 
-    <form action="{{route("comics.update", ['id' => $comic->id])}}" method="POST" enctype="multipart/form-data">
+
+    <form action="{{route("comics.update", [$comic->id])}}" method="POST" enctype="multipart/form-data">
         
         @csrf
 

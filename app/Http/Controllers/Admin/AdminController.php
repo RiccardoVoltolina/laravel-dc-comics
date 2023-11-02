@@ -44,6 +44,7 @@ class AdminController extends Controller
             $newComic ->thumb = $file_path;
         }
       
+        // inserisco i dati contenuti nel seeder (ComicsSeeder.php)
         
         $newComic ->title = $request->title;
         $newComic ->description = $request->description;
@@ -84,9 +85,14 @@ class AdminController extends Controller
 
     /**
      * prendo i dati scritti nel form del edit e li aggiorno nel database
+     * bisogna ricordarsi di aggiornare il model Comics
      */
-    public function update(Request $request, Comics $comics)
+    public function update(Request $request, Comics $comic)
     {
+        
+        $data = $request->all();
+        $comic->update($data);
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
