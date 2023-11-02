@@ -65,8 +65,10 @@ class AdminController extends Controller
      * Display the specified resource.
      */
     public function show(Comics $comics)
+
     {
-        //
+        return view('pages.admin.comics.show', compact('comics'));
+
     }
 
     /**

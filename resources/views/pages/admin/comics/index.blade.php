@@ -9,7 +9,8 @@
         <div class="row">
             <div class="col d-flex flex-wrap">
                 @foreach ($comics as $comic)
-                <div class="card w-25 m-2 p-5">
+                <a href="{{route('comics.show', $comic->id)}}" class="card w-25 m-2 p-5">
+                    
                     {{-- se l'immagine la mette l'utente stmpo questo sotto, senò uso il percorso di prima --}}
                     {{-- @if (Str::startsWith($comic->thumb, 'comics_images'))
                         <img class="card-img-top" src="{{  asset('storage/' .  $comic->thumb)}}" alt="">
@@ -38,7 +39,7 @@
                         <h5>Autore:</h5>
                         <div>{{$comic->writers}}</div>
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
