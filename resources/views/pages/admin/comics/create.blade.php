@@ -9,7 +9,10 @@
 
         
 
-    <form action="{{route('comics.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route("comics.store")}}" method="POST" enctype="multipart/form-data">
+        
+        @csrf
+        
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
             <input type="text" class="form-control" name="description" id="description" aria-describedby="helpId" placeholder="scrivi una descrizione">
