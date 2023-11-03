@@ -10,6 +10,12 @@
             <div class="col d-flex flex-wrap">
                 @foreach ($comics as $comic)
                 <a href="{{route('comics.show', $comic->id)}}" class="card w-25 m-2 p-5">
+                    <form action="{{route("comics.destroy", [$comic->id])}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit">
+                    </form>
+
                     
                     {{-- se l'immagine la mette l'utente stmpo questo sotto, senò uso il percorso di prima --}}
                     {{-- @if (Str::startsWith($comic->thumb, 'comics_images'))

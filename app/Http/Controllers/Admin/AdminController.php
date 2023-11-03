@@ -76,7 +76,7 @@ class AdminController extends Controller
 
     /**
      * la funzione viene richiamata quando accedo alla pagina admin/comics/{comic}/edit, tramite le rotte
-     * la funzione create serve a ritornare la view edit 
+     * la funzione edit serve a ritornare la view edit 
      */
     public function edit(Comics $comic)
     {
@@ -101,6 +101,7 @@ class AdminController extends Controller
      */
     public function destroy(Comics $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('comics.index');
     }
 }

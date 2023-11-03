@@ -112,3 +112,54 @@ Perciò nella pagina di layout, possiamo costruire una modale, dove nell' id='mo
 
 
 
+OPERAZIONI PARTENDO DA 0:
+
+Dopo aver fatto le solite importazioni, andiamo a collegare il database, modificando il file .env e li mettiamo su public il filesystem_disk
+
+Modifichiamo nella cartella config il filesystem_disk, cambiamo in public
+
+scriviamo php artisan storage:link
+
+e importiamo il preset di fabio ed eseguiamo i suoi comandi
+
+ora apriamo le 2 finestre con npm run dev e local host800
+
+ora nella cartella view creiamo una cartella chiamata layouts e ci mettiamo 2 file: admin.blade.php e app.blade.php
+
+Ora rinominiamo il file welcome in index e modifichiamo la rotta in web in index
+
+Ora in app utilizziamo lo yield
+
+Mentre in app facciamo l'@extends(layouts.app)
+@section
+@endsection
+
+Ora nella cartella view faccio una artella partials e ci aggiungiamo i parziali tipo header footer ecc...
+
+Nel app invece includiamo i parziali e scriviamo lo yield
+
+Ora andiamo a creare i modelli con 
+php artisan make:model Task -ms
+
+php artisan make:controller Admin/TaskController --resource --model=Task
+
+E in web.php creiamo una rotta che prende il Task controller appena creato
+
+Ora andiamo a creare i seeder e le migrazioni
+
+Entriamo in migrations e selezioniamo l'ultimo file 
+Qui nel create andiamo a scrivere in $table_>id();
+$table->text('descrizione') e scriviamo tutte le voci delle tabelle che vogliamo creare
+
+Ora nel seeders ci costruiamo un array e ci cicliamo e scriviamo:
+$task = new Task() per creare la nuova istanza
+$task->nome_colonna = $nome_array_singolare['nome colonna']
+
+php artisan migrate --seed
+
+creiamo il database
+
+php artisan db:seed --class=TaskSeeder
+
+Ora possiamo implementare le funzioni del controller index,create...
+
