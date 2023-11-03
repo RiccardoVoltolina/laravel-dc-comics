@@ -102,6 +102,6 @@ class AdminController extends Controller
     public function destroy(Comics $comic)
     {
         $comic->delete();
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('messaggio', 'hai cancellato il il fumetto con successo!');
     }
 }
