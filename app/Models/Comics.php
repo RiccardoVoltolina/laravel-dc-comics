@@ -12,6 +12,6 @@ class Comics extends Model
     // andiamo a scrivere il nome della tabella
     protected $table = 'Comics';
 
-    // creo una nuova variabile protetta e gli passo un array, contenente tutti i dati del seeder (ComicsSeeder.php)
+    // creo una nuova variabile ($fillable che è una variabile creata da laravel!) protetta e gli passo un array, contenente tutti i dati del seeder (ComicsSeeder.php)
     protected $fillable = ['title', 'description', 'price', 'series', 'sale_date', 'type', 'artists', 'writers'];
 }

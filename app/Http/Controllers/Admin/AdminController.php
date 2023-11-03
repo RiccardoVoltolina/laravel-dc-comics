@@ -64,7 +64,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * la funzione viene richiamata quando accedo alla pagina admin/comics/{comic}, tramite le rotte
+     * la funzione create serve a ritornare la view show (in questo caso gli passiamo anche la variabile $comic per passargli i dati per stampare)
      */
     public function show(Comics $comic)
 
@@ -98,7 +99,7 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comics $comics)
+    public function destroy(Comics $comic)
     {
         //
     }
