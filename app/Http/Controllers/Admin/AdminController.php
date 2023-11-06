@@ -34,12 +34,20 @@ class AdminController extends Controller
      * prendo i dati scritti nel form del create e li aggiungo al database
      */
     public function store(Request $request)
+
+    // metto una validazione, per verificare che i dati inseriti, rispettino i requisiti dati, prima di essere immessi nel db
     {
 
         $validated = $request->validate([
             'title' => 'required|max:50|min:3',
-            'thumb' => 'mimes:jpg,bmp,png|max:300',
-
+            'thumb' => 'nullable|mimes:jpg,bmp,png|max:300',
+            'sale_date' => 'nullable|date',
+            'description' => 'nullable|max:1000|min:3',
+            'price' => 'nullable|decimal:2',
+            'series' => 'nullable|max:50|min:3',
+            'type' => 'nullable|max:50|min:3',
+            'artists' => 'nullable|max:50|min:3',
+            'writers' => 'nullable|max:50|min:3',
         ]);
         
         $newComic = new Comics();
