@@ -43,7 +43,7 @@ class AdminController extends Controller
             'thumb' => 'nullable|mimes:jpg,bmp,png|max:300',
             'sale_date' => 'nullable|date',
             'description' => 'nullable|max:1000|min:3',
-            'price' => 'nullable|decimal:2',
+            'price' => 'nullable|max:10|min:1',
             'series' => 'nullable|max:50|min:3',
             'type' => 'nullable|max:50|min:3',
             'artists' => 'nullable|max:50|min:3',
@@ -103,7 +103,20 @@ class AdminController extends Controller
      * bisogna ricordarsi di aggiornare il model Comics
      */
     public function update(Request $request, Comics $comic)
-    {
+
+    {    // metto una validazione, per verificare che i dati inseriti, rispettino i requisiti dati, prima di essere aggiornati nel db
+
+        $validated = $request->validate([
+            'title' => 'required|max:50|min:3',
+            'thumb' => 'nullable|mimes:jpg,bmp,png|max:300',
+            'sale_date' => 'nullable|date',
+            'description' => 'nullable|max:1000|min:3',
+            'price' => 'nullable|max:10|min:1',
+            'series' => 'nullable|max:50|min:3',
+            'type' => 'nullable|max:50|min:3',
+            'artists' => 'nullable|max:50|min:3',
+            'writers' => 'nullable|max:50|min:3',
+        ]);
         
         $data = $request->all();
         $comic->update($data);
