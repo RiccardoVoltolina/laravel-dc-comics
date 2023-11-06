@@ -35,6 +35,12 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validated = $request->validate([
+            'title' => 'required|max:50|min:3',
+            'thumb' => 'file|size:300',
+
+        ]);
         
         $newComic = new Comics();
 
