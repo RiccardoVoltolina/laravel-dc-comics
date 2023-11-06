@@ -38,7 +38,7 @@ class AdminController extends Controller
 
         $validated = $request->validate([
             'title' => 'required|max:50|min:3',
-            'thumb' => 'image|max:300',
+            'thumb' => 'mimes:jpg,bmp,png|max:300',
 
         ]);
         

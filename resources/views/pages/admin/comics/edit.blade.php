@@ -21,6 +21,7 @@
         {{-- assegno ad ogni input il valore $comic che corrisponde a quello inserito nella funzione edit nel adminController --}}
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
+            {{-- uso la funzione old nel value per restituire i vecchi valori del db come valori di default --}}
             <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="scrivi una descrizione" value="{{ old('title', $comic->title) }}">
             <small id="titleHelper" class="form-text text-muted">Scrivi una descrizione</small>
         </div>
