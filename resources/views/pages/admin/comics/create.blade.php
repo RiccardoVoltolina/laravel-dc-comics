@@ -5,6 +5,7 @@
     
 <div>
 
+    {{-- se il validation messo nella funzione store riscontra degli errori, allora stampo in pagina un messaggio di errore --}}
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

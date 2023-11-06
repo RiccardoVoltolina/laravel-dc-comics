@@ -4,7 +4,21 @@
 @section('main_content')
     
 <div>
-<h1>edit</h1>   
+    <h1>edit</h1>   
+
+        {{-- se il validation messo nella funzione edit riscontra degli errori, allora stampo in pagina un messaggio di errore --}}
+
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
 
     {{-- al submit del form faccio partire la funzione update --}}
 
